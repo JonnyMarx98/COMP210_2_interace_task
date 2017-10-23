@@ -1,1 +1,3 @@
 # COMP210_2_interace_task
+
+For my interface I will be using my collaborative game which is a top down point and click horror game. In the game you are a "god character" who is controlling a person in a dark library, I think this would work well in AR as the main way to control the character is by clicking, so in AR you would just tap where you are looking to move the character. As the game is top down it could played on the floor or even a table which I think would work really well. As a stretch goal, rather than it just being like a screen on a table, I will make the game world 3d so it would look like the library is actually there on the table or on the floor. 
