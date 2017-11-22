@@ -5,7 +5,10 @@ using UnityEngine.VR.WSA.Input;
 
 public class PlayerMovement : MonoBehaviour {
 
-    private float speed = 3;
+    
+    Animator anim;
+
+    public float speed = 5;
     private Vector3 targetPosition;
     private bool isMoving;
     private Vector3 cursorPosition;
@@ -19,7 +22,8 @@ public class PlayerMovement : MonoBehaviour {
         recognizer.TappedEvent += MovePlayer;
         recognizer.StartCapturingGestures();
 
-        //cursorPosition = GameObject.Find("Cursor").transform.position;
+        anim = GameObject.Find("Player_Idle").GetComponent<Animator>();
+        anim.speed = speed / 3;
 
         targetPosition = transform.position; //+ new Vector3(3.0f, 0.0f, 3.0f);
         isMoving = false;
@@ -29,11 +33,12 @@ public class PlayerMovement : MonoBehaviour {
     {
         cursorPosition = GameObject.Find("Cursor").transform.position;
         targetPosition = cursorPosition;
+        targetPosition.y = transform.position.y; // -3.0f;
         isMoving = true;
         
         transform.LookAt(targetPosition);
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
+        
     }
 
     // Update is called once per frame
@@ -42,7 +47,13 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space))
         {
             MovePlayer(InteractionSourceKind.Other, 1, new Ray());
+            anim.SetBool("IsWalking", true);
         }
+        else
+        {
+            anim.SetBool("IsWalking", false);
+        }
+        
 
         //if (isMoving)
         //{
@@ -50,6 +61,6 @@ public class PlayerMovement : MonoBehaviour {
         //}
 
 
-        
+
     }
 }

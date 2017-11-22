@@ -25,6 +25,8 @@ public class Cursor : MonoBehaviour
 
         RaycastHit hitInfo;
 
+        Ray MouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
         #region Keyboard Controls for testing
 
         // head movement
@@ -68,7 +70,7 @@ public class Cursor : MonoBehaviour
         #endregion
 
 
-        if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
+        if (Physics.Raycast(MouseRay, out hitInfo))      // (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
         {
             // If the raycast hit a hologram...
             // Display the cursor mesh.
