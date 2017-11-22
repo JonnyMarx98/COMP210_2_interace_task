@@ -1,0 +1,4 @@
+D:\Uni\2nd Year\Comp210 InterfacesInteraction\AR Hololens\HololensProject\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
+D:\Uni\2nd Year\Comp210 InterfacesInteraction\AR Hololens\HololensProject\App\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj;x86
+D:\Uni\2nd Year\Comp210 InterfacesInteraction\AR Hololens\HololensProject\App\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj;x86
+D:\Uni\2nd Year\Comp210 InterfacesInteraction\AR Hololens\HololensProject\App\HololensProject\HololensProject.csproj;x86
