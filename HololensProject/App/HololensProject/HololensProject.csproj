@@ -208,13 +208,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="D:\Uni\2nd Year\Comp210 InterfacesInteraction\AR Hololens\HololensProject\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj">
-      <Project>{9347348f-d60c-44a3-8796-ab57c3244cb2}</Project>
+    <ProjectReference Include="D:\Uni\2nd Year\Comp210 InterfacesInteraction\COMP210_2_interace_task\HololensProject\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj">
+      <Project>{d683f084-5a83-423d-abe1-536d2be83ef9}</Project>
       <Name>Assembly-CSharp</Name>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="D:\Uni\2nd Year\Comp210 InterfacesInteraction\AR Hololens\HololensProject\App\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj">
-      <Project>{cddf9f2f-dfe1-4fa1-9bca-6f6263970bc0}</Project>
+    <ProjectReference Include="D:\Uni\2nd Year\Comp210 InterfacesInteraction\COMP210_2_interace_task\HololensProject\App\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj">
+      <Project>{f9953e05-41de-465b-b2ab-9ef212ed3bf0}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
       <Private>False</Private>
     </ProjectReference>

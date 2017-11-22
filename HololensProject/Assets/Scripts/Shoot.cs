@@ -7,8 +7,6 @@ public class Shoot : MonoBehaviour
     GestureRecognizer recognizer;
     public float ForceMagnitude = 300f;
 
-    AudioSource audioSource = null;
-    AudioClip shootClip = null;
 
     // Use this for initialization
     void Start()
@@ -18,18 +16,6 @@ public class Shoot : MonoBehaviour
         recognizer.TappedEvent += ShootBall;
         recognizer.SetRecognizableGestures(GestureSettings.Tap | GestureSettings.Hold);
         recognizer.StartCapturingGestures();
-
-        // Add an AudioSource component and set up some defaults
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
-        audioSource.spatialize = true;
-        audioSource.spatialBlend = 1.0f;
-        audioSource.dopplerLevel = 0.0f;
-        audioSource.rolloffMode = AudioRolloffMode.Logarithmic;
-        audioSource.maxDistance = 20f;
-
-        // Load the Sphere sounds from the Resources folder
-        shootClip = Resources.Load<AudioClip>("Pitch");
     }
 
     private void ShootBall(InteractionSourceKind source, int tapCount, Ray headRay)
@@ -50,20 +36,17 @@ public class Shoot : MonoBehaviour
         transformForward = Quaternion.AngleAxis(-10, transform.right) * transformForward;
         // Shoot!!
         rigidBody.AddForce(transformForward * ForceMagnitude);
-
-        audioSource.clip = shootClip;
-        audioSource.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            OnShoot();
+            ShootBall(InteractionSourceKind.Other, 1, new Ray());
         }
     }
-
+    
     public void OnShoot()
     {
         ShootBall(InteractionSourceKind.Voice, 1, new Ray());

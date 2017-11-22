@@ -30,11 +30,11 @@ public class Cursor : MonoBehaviour
         // head movement
         if (Input.GetKeyDown(KeyCode.A))
         {
-            Camera.main.transform.position = headPosition - new Vector3(0.1f, 0.0f);
+            Camera.main.transform.position = headPosition - new Vector3(0.2f, 0.0f);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            Camera.main.transform.position = headPosition + new Vector3(0.1f, 0.0f);
+            Camera.main.transform.position = headPosition + new Vector3(0.2f, 0.0f);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
@@ -46,22 +46,24 @@ public class Cursor : MonoBehaviour
         }
 
         // head rotation
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             Camera.main.transform.rotation = new Quaternion(headRotation.x, headRotation.y - 0.01f, headRotation.z, headRotation.w);
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             Camera.main.transform.rotation = new Quaternion(headRotation.x, headRotation.y + 0.01f, headRotation.z, headRotation.w);
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             Camera.main.transform.rotation = new Quaternion(headRotation.x - 0.01f, headRotation.y, headRotation.z, headRotation.w);
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             Camera.main.transform.rotation = new Quaternion(headRotation.x + 0.01f, headRotation.y, headRotation.z, headRotation.w);
         }
+
+        
 
         #endregion
 

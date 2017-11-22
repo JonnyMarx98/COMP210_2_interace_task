@@ -1,8 +1,8 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <UnityWSASolutionName>HololensProject</UnityWSASolutionName>
-        <UnityWSASolutionDir>D:\Uni\2nd Year\Comp210 InterfacesInteraction\AR Hololens\HololensProject\App\</UnityWSASolutionDir>
-        <UnityProjectDir>D:\Uni\2nd Year\Comp210 InterfacesInteraction\AR Hololens\HololensProject\</UnityProjectDir>
+        <UnityWSASolutionDir>D:\Uni\2nd Year\Comp210 InterfacesInteraction\COMP210_2_interace_task\HololensProject\App\</UnityWSASolutionDir>
+        <UnityProjectDir>D:\Uni\2nd Year\Comp210 InterfacesInteraction\COMP210_2_interace_task\HololensProject\</UnityProjectDir>
         <UnityWSAPlayerDir>C:\Program Files\Unity\Editor\Data\PlaybackEngines\MetroSupport\</UnityWSAPlayerDir>
         <UnityWSAToolsDir>$(UnityWSASolutionDir)Unity\Tools\</UnityWSAToolsDir>
     </PropertyGroup>

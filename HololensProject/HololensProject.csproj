@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CubeColour.cs" />
     <Compile Include="Assets\Scripts\Cursor.cs" />
+    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Shoot.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
