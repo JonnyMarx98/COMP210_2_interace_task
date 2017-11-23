@@ -70,7 +70,7 @@ public class Cursor : MonoBehaviour
         #endregion
 
 
-        if (Physics.Raycast(MouseRay, out hitInfo))      // (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
+        if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))      // (Physics.Raycast(headPosition, gazeDirection, out hitInfo)) for Hololens  or  (Physics.Raycast(MouseRay, out hitInfo)) for mouse
         {
             // If the raycast hit a hologram...
             // Display the cursor mesh.

@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     public float speed = 5;
     private Vector3 targetPosition;
     private bool isMoving;
+    bool isWalking;
     private Vector3 cursorPosition;
     GestureRecognizer recognizer;
 
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour {
 
         targetPosition = transform.position; //+ new Vector3(3.0f, 0.0f, 3.0f);
         isMoving = false;
+        isWalking = true;
     }
 
     private void MovePlayer(InteractionSourceKind source, int tapCount, Ray headRay)
@@ -44,7 +46,20 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isWalking)
+            {
+                isWalking = false;
+            }
+            else
+            {
+                isWalking = true;
+            }
+            
+        }
+
+        if (isWalking)
         {
             MovePlayer(InteractionSourceKind.Other, 1, new Ray());
             anim.SetBool("IsWalking", true);
@@ -53,7 +68,15 @@ public class PlayerMovement : MonoBehaviour {
         {
             anim.SetBool("IsWalking", false);
         }
-        
+
+        // always look at cursor 
+        cursorPosition = GameObject.Find("Cursor").transform.position;
+        targetPosition = cursorPosition;
+        transform.LookAt(targetPosition);
+
+        // lock z and x rotation
+        Quaternion lockRotation = new Quaternion(0.0f, transform.rotation.y,0.0f, transform.rotation.w);
+        transform.rotation = lockRotation;
 
         //if (isMoving)
         //{
