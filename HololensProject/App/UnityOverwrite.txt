@@ -5,19 +5,26 @@
 # Write a line equal to 'overwrite-all' (without quotes) to overwrite everything (preserved accross builds)
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
-HololensProject.sln: 6B1C5A5CB3CF6B67ED67449B0A5BC3B4
-GeneratedProjects\UWP\Assembly-CSharp\project.json: 4FCF72A4D5EDB37E24C206A7BCFE7AF1
-GeneratedProjects\UWP\Assembly-CSharp-firstpass\project.json: 4FCF72A4D5EDB37E24C206A7BCFE7AF1
+HololensProject.sln: DF3BFDF252C13784F73DB52FE1B8840F
 HololensProject\App.cs: 2E05CCAA609FE7083F8375BE5B543579
-HololensProject\HololensProject.csproj: 17B0702FDF20212F37E038044D59E258
-HololensProject\HololensProject.csproj.user: BEFB8AC4886C4CFDD3C68445D6F19B04
-HololensProject\Package.appxmanifest: 13D92740F967C5F6DD58DB593935A8CC
-HololensProject\project.json: 1D02BC64BAC0D041019673A1C4C51737
+HololensProject\HololensProject.csproj: D6DC61D640947D744C01925BD080286B
+HololensProject\HololensProject.csproj.user: modified
+HololensProject\Package.appxmanifest: A6210B696671FD51424F4F87D71D2211
+HololensProject\project.json: modified
 HololensProject\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
 HololensProject\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
 HololensProject\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
 HololensProject\Assets\Square44x44Logo.targetsize-24_altform-unplated.png: 156637F7B5363E983E7A46D8E533A23D
 HololensProject\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
 HololensProject\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
+HololensProject\bin\x86\Debug\AppX\Assets\SplashScreen.scale-200.png: 60618416282ED104FD1473935716045D
+HololensProject\bin\x86\Debug\AppX\Assets\Square150x150Logo.scale-200.png: E02834B4A5DFB97FF8E212C1CACBB084
+HololensProject\bin\x86\Debug\AppX\Assets\Square44x44Logo.scale-200.png: 6C6EF27184ABE9D870A9D564953775DE
+HololensProject\bin\x86\Debug\AppX\Assets\Square44x44Logo.targetsize-24_altform-unplated.png: 156637F7B5363E983E7A46D8E533A23D
+HololensProject\bin\x86\Debug\AppX\Assets\StoreLogo.png: 90BD194CA4A7CFFF3E8B8222229857FB
+HololensProject\bin\x86\Debug\AppX\Assets\Wide310x150Logo.scale-200.png: C96846A80DF667F87355569CD816192D
+HololensProject\bin\x86\Debug\AppX\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
+HololensProject\obj\ARM\Debug\HololensProject.csproj.CopyComplete: D41D8CD98F00B204E9800998ECF8427E
+HololensProject\obj\x86\Debug\HololensProject.csproj.CopyComplete: D41D8CD98F00B204E9800998ECF8427E
 HololensProject\Properties\AssemblyInfo.cs: 66A1C5561EC0AEB4704C77A2CE1608CA
 HololensProject\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826

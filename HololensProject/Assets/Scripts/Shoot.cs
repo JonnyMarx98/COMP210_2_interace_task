@@ -23,19 +23,19 @@ public class Shoot : MonoBehaviour
         // Create a ball/sphere to shoot
         var ball = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         // Resize the ball
-        ball.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        ball.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         // Make the ball adhere to gravity
         var rigidBody = ball.AddComponent<Rigidbody>();
         // Make the ball a little "floaty", like a ping pong ball
-        rigidBody.mass = 0.5f;
+        rigidBody.mass = 0.2f;
         // Set the ball at the current position
         rigidBody.position = transform.position;
         Vector3 ShootPos = new Vector3(0.0f, 1.0f, 0.0f);
-        rigidBody.position += ShootPos; 
+        rigidBody.position += ShootPos;
         // Then point the ball to go forward
         var transformForward = transform.forward;
         // Set the "shoot" angle
-        transformForward = Quaternion.AngleAxis(-10, transform.right) * transformForward;
+        //transformForward = Quaternion.AngleAxis(-10, transform.right) * transformForward;
         // Shoot!!
         float ForceMagnitude = 300f;
         rigidBody.AddForce(transformForward * ForceMagnitude);
