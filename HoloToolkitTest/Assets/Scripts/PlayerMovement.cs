@@ -45,19 +45,7 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            if (isWalking)
-            {
-                isWalking = false;
-            }
-            else
-            {
-                isWalking = true;
-            }
-
-        }
-
+        
         if (isWalking)
         {
             MovePlayer();
