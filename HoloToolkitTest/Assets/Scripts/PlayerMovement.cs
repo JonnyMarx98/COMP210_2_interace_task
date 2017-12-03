@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     public float speed = 2;
     private Vector3 targetPosition;
     //private bool isMoving;
-    bool isWalking;
+    public bool isWalking;
     private Vector3 cursorPosition;
     Animator anim;
 
@@ -32,8 +32,18 @@ public class PlayerMovement : MonoBehaviour {
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, (speed/7.5f) * Time.deltaTime);
     }
 
-	// Update is called once per frame
-	void Update ()
+    public void OnMove()
+    {
+        isWalking = true;
+    }
+
+    public void OnStop()
+    {
+        isWalking = false;
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
