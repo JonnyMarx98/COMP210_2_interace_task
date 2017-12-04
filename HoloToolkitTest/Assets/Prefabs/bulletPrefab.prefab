@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4569670872262854}
   - component: {fileID: 33304192773907168}
   - component: {fileID: 23683673154467744}
+  - component: {fileID: 122953862431895996}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -141,3 +142,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.5, y: 4, z: 6}
   m_Center: {x: 0, y: 0, z: 0.75}
+--- !u!122 &122953862431895996
+Halo:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865547366051950}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 255
+  m_Size: -0.03
