@@ -24,6 +24,12 @@ namespace HoloToolkit.Unity.InputModule.Tests
         public GameObject Bullet_Emitter;
         public GameObject Bullet;
         public float Bullet_Forward_Force;
+        public AudioSource audioSource;
+
+        private void Awake()
+        {
+            audioSource = gameObject.GetComponent<AudioSource>();
+        }
 
 
         public void OnInputDown(InputEventData eventData)
@@ -44,6 +50,8 @@ namespace HoloToolkit.Unity.InputModule.Tests
 
             //Basic Clean Up, set the Bullets to self destruct after 10 Seconds, I am being VERY generous here, normally 3 seconds is plenty.
             Destroy(Temporary_Bullet_Handler, 10.0f);
+
+            audioSource.Play();
 
             eventData.Use(); // Mark the event as used, so it doesn't fall through to other handlers.
         }
