@@ -6,7 +6,7 @@ namespace HoloToolkit.Unity.InputModule
 {
     public class GameManager : MonoBehaviour
     {
-
+        AudioSource audioSource;
         public bool Playing;
         TapToPlace tapToPlace;
 
@@ -15,6 +15,7 @@ namespace HoloToolkit.Unity.InputModule
         {
             Playing = false;
             tapToPlace = gameObject.GetComponent<TapToPlace>();
+            audioSource = gameObject.GetComponent<AudioSource>();
         }
 
         public void OnStart()
@@ -27,7 +28,8 @@ namespace HoloToolkit.Unity.InputModule
         public void OnPlace()
         {
             Playing = false;
-            tapToPlace.enabled = true;
+            tapToPlace.Playing = false;
+            // tapToPlace.enabled = true;
             // Play sound/display text to let player know game is in place mode
         }
 

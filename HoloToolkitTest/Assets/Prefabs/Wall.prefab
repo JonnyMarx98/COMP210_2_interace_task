@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23679549807594798}
   - component: {fileID: 114681363906816998}
   - component: {fileID: 114517676451993008}
+  - component: {fileID: 208124772118713086}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -130,3 +131,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TerrainSimplificationLevel: 0
   exportAllChildren: 0
+--- !u!208 &208124772118713086
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390069147858678}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

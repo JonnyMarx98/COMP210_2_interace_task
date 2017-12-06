@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         isWalking = true;
 
-        anim = GameObject.Find("Player_Idle").GetComponent<Animator>();
+        anim = GameObject.Find("Player_Anim").GetComponent<Animator>();
         anim.speed = speed;
 
 	}
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour {
         targetPosition.y = transform.position.y;
 
         transform.LookAt(targetPosition);
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, (speed/7.5f) * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, (speed/20f) * Time.deltaTime);
     }
 
     public void OnMove()

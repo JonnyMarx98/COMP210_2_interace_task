@@ -18,6 +18,8 @@ namespace HoloToolkit.Unity.InputModule
     [RequireComponent(typeof(Interpolator))]
     public class TapToPlace : MonoBehaviour, IInputClickHandler
     {
+        public bool Playing;
+
         [Tooltip("Distance from camera to keep the object while placing it.")]
         public float DefaultGazeDistance = 2.0f;
 
@@ -53,6 +55,8 @@ namespace HoloToolkit.Unity.InputModule
 
         protected virtual void Start()
         {
+            Playing = false;
+
             if (PlaceParentOnTap)
             {
                 ParentGameObjectToPlace = GetParentToPlace();
@@ -127,13 +131,24 @@ namespace HoloToolkit.Unity.InputModule
 
             // Rotate this object to face the user.
             interpolator.SetTargetRotation(Quaternion.Euler(0, cameraTransform.localEulerAngles.y, 0));
+
+            //if (!IsBeingPlaced)
+            //{
+            //    //GetComponent<GameManager>().OnStart();
+            //    GetComponent<TapToPlace>().enabled = false;
+            //}
+
         }
 
         public virtual void OnInputClicked(InputClickedEventData eventData)
         {
             // On each tap gesture, toggle whether the user is in placing mode.
-            IsBeingPlaced = !IsBeingPlaced;
-            HandlePlacement();
+            if (!Playing)
+            {
+                IsBeingPlaced = !IsBeingPlaced;
+                HandlePlacement();
+                Playing = true;
+            }
         }
 
         private void HandlePlacement()
@@ -247,5 +262,6 @@ namespace HoloToolkit.Unity.InputModule
             }
             return headPosition + gazeDirection * defaultGazeDistance;
         }
+
     }
 }
