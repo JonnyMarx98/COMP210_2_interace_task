@@ -232,8 +232,15 @@
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>C:/Users/speed/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Bullet.cs" />
     <Compile Include="Assets\HoloToolkit\Boundary\Scripts\BoundaryManager.cs" />
     <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\AnimatedCursor.cs" />
     <Compile Include="Assets\HoloToolkit\Input\Scripts\Cursor\AnimatorParameter.cs" />
@@ -779,8 +786,11 @@
     <Compile Include="Assets\HoloToolkit-Examples\UX\Scripts\Widgets\TextureThemeWidget.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Shoot.cs" />
+    <Compile Include="Assets\Scripts\Weapon.cs" />
+    <Compile Include="Assets\Scripts\WeaponPickUp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\HoloToolkit-Examples\Medical\Shaders\PlaneCut.cginc" />

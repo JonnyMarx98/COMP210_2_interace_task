@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 namespace HoloToolkit.Unity.InputModule
@@ -31,6 +32,11 @@ namespace HoloToolkit.Unity.InputModule
             tapToPlace.Playing = false;
             // tapToPlace.enabled = true;
             // Play sound/display text to let player know game is in place mode
+        }
+
+        public void OnReset()
+        {
+            SceneManager.LoadScene("FloorGame");
         }
 
         // Update is called once per frame

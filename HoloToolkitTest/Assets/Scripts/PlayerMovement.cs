@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour {
         targetPosition.y = transform.position.y;
 
         transform.LookAt(targetPosition);
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, (speed/20f) * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, (speed/7f) * Time.deltaTime);
     }
 
     public void OnMove()
