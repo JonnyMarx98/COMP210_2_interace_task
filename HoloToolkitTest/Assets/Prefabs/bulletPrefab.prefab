@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 54614888896019138}
   - component: {fileID: 114475788213241914}
   - component: {fileID: 65942543159578636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bulletPrefab
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -41,9 +41,9 @@ GameObject:
   - component: {fileID: 33304192773907168}
   - component: {fileID: 23683673154467744}
   - component: {fileID: 122953862431895996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
