@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace HoloToolkit.Unity.InputModule
 {
@@ -10,13 +11,17 @@ namespace HoloToolkit.Unity.InputModule
         AudioSource audioSource;
         public bool Playing;
         TapToPlace tapToPlace;
+        public int score;
+        public Text scoreText;
 
         // Use this for initialization
         void Start()
         {
+            scoreText = GameObject.Find("Text").GetComponent<Text>();
             Playing = false;
             tapToPlace = gameObject.GetComponent<TapToPlace>();
             audioSource = gameObject.GetComponent<AudioSource>();
+            score = 0;
         }
 
         public void OnStart()
@@ -30,7 +35,6 @@ namespace HoloToolkit.Unity.InputModule
         {
             Playing = false;
             tapToPlace.Playing = false;
-            // tapToPlace.enabled = true;
             // Play sound/display text to let player know game is in place mode
         }
 
@@ -42,11 +46,7 @@ namespace HoloToolkit.Unity.InputModule
         // Update is called once per frame
         void Update()
         {
-            if (!Playing)
-            {
-
-            }
-
+            scoreText.text = ("Score: " + score.ToString());
         }
     }
 }

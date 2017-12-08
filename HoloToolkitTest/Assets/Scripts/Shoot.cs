@@ -25,15 +25,18 @@ namespace HoloToolkit.Unity.InputModule.Tests
         public GameObject Bullet;
         public float Bullet_Forward_Force;
         public AudioSource audioSource;
-        private int Shots = 5;
-        private float spreadFactor = 0.2f;
+        public int Shots = 5;
+        public float spreadFactor = 0.2f;
         public bool hasShotgun = false;
         public float shotgunTime = 5.0f;
         private float initialTime;
+        public AudioClip handgunSound;
+        public AudioClip shotgunSound;
 
         private void Awake()
         {
             audioSource = gameObject.GetComponent<AudioSource>();
+            audioSource.clip = handgunSound;
             initialTime = shotgunTime;
         }
 
@@ -43,10 +46,12 @@ namespace HoloToolkit.Unity.InputModule.Tests
             if (hasShotgun)
             {
                 ShotGun();
+                audioSource.clip = shotgunSound;
             }
             else
             {
                 HandGun();
+                audioSource.clip = handgunSound;
             }
             eventData.Use(); // Mark the event as used, so it doesn't fall through to other handlers.
             audioSource.Play(); // Play Shoot sound
@@ -114,6 +119,8 @@ namespace HoloToolkit.Unity.InputModule.Tests
             }
         }
     }
+
+// Add full auto gun here 
 
 //    public class Shoot : MonoBehaviour, IHoldHandler
 //    {

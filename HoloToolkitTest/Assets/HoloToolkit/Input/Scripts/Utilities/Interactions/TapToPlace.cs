@@ -178,7 +178,7 @@ namespace HoloToolkit.Unity.InputModule
             layerCacheTarget.ApplyLayerCacheRecursively(layerCache);
             InputManager.Instance.PopModalInputHandler();
 
-            ToggleSpatialMesh();
+            //ToggleSpatialMesh();
             AttachWorldAnchor();
         }
 
