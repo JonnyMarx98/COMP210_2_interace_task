@@ -40,6 +40,7 @@ namespace HoloToolkit.Unity.InputModule
 
         public void OnReset()
         {
+            SceneManager.UnloadSceneAsync("FloorGame");
             SceneManager.LoadScene("FloorGame");
         }
 

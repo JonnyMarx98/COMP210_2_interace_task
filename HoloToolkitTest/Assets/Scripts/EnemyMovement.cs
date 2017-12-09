@@ -18,6 +18,13 @@ public class EnemyMovement : MonoBehaviour {
     private bool scoreAdd = false;
     private bool scoreAdded = false;
 
+    private bool Attacking;
+    private bool Attacked = false;
+    public float attackRate = 0.5f; // lower number = faster attack
+    private float lastAttackTime;
+    public float AttackTime = 0.5f;
+    private float InitAttackTime;
+
     AudioSource audioSource;
     public AudioClip deathSound;
 
@@ -30,6 +37,7 @@ public class EnemyMovement : MonoBehaviour {
         float playerSpeed = player.GetComponent<PlayerMovement>().speed;
         playerTransform = player.transform;
         isWalking = true;
+        InitAttackTime = AttackTime;
         time = 1.0f;
         killed = false;
     }
@@ -39,13 +47,34 @@ public class EnemyMovement : MonoBehaviour {
         if (other.gameObject.tag == "Bullet")
         {
             audioSource.Play();
-            Destroy(this.gameObject.GetComponent<MeshRenderer>());
-            Destroy(this.gameObject.GetComponent<CapsuleCollider>());
-            Destroy(this.gameObject.GetComponent<BoxCollider>());
+            DeleteEnemy();
             killed = true;
             scoreAdd = true;
-            
+        }       
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player" && !Attacked)
+        {
+            player.GetComponent<PlayerHealth>().playerHealth -= 20.0f;
+            print("ouch");
+            Attacked = true;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+        }
+    }
+
+    void DeleteEnemy()
+    {
+        Destroy(this.gameObject.GetComponent<MeshRenderer>());
+        Destroy(this.gameObject.GetComponent<CapsuleCollider>());
+        Destroy(this.gameObject.GetComponent<BoxCollider>());
     }
 
     private void MovePlayer()
@@ -76,15 +105,19 @@ public class EnemyMovement : MonoBehaviour {
             MovePlayer();
         }
 
-        if (killed)
-        {
-            time -= Time.deltaTime;
-        }
+        // destroy enemy after 1 second to allow sound to be played
+        if (killed){time -= Time.deltaTime;}
+        if (time <= 0.0f){Destroy(this.gameObject);}
 
-        if (time <= 0.0f)
+        // Attacking delay
+        if (Attacked)
         {
-            print("Enemy deleted");
-            Destroy(this.gameObject);
+            AttackTime -= Time.deltaTime;
+        }
+        if (AttackTime <= 0.0f)
+        {
+            Attacked = false;
+            AttackTime = InitAttackTime;
         }
 
         if (scoreAdd && !scoreAdded)
