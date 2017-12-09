@@ -22,11 +22,11 @@ GameObject:
   - component: {fileID: 33006875071522074}
   - component: {fileID: 65493868521759940}
   - component: {fileID: 23439996766749826}
-  - component: {fileID: 114591126640743934}
   - component: {fileID: 122729567660593140}
   - component: {fileID: 82568770180188876}
+  - component: {fileID: 114770892966629870}
   m_Layer: 10
-  m_Name: ShotgunPickUp
+  m_Name: AutoGunPickUp
   m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: d97f41b83055e8e4598f7ad058ffeec4, type: 2}
+  - {fileID: 2100000, guid: 936cab6dae5b43c489d48e56d4a26cb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -178,7 +178,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114591126640743934
+--- !u!114 &114770892966629870
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1622851888185748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5d9a1c6216190d44b0b25d06dd4f727, type: 3}
+  m_Script: {fileID: 11500000, guid: 816fc2271d1448c468a90ad1c6f0c228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 10
@@ -200,5 +200,5 @@ Halo:
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4294961664
+    rgba: 4278190335
   m_Size: 0.1

@@ -11,8 +11,6 @@ public class ItemSpawner : MonoBehaviour {
     public float maxSpawnDelay;
     [SerializeField]
     ItemSpawn[] itemSpawns;
-    [SerializeField]
-    //int initialItemsSpawned;
 
     public float spawnTimer;
 
@@ -31,7 +29,7 @@ public class ItemSpawner : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (tapPlace.Playing)
+        if (tapPlace.Playing)  // Checks if the character has been placed and game has started
         {
             spawnTimer += Time.deltaTime;
 
@@ -57,10 +55,8 @@ public class ItemSpawner : MonoBehaviour {
 
     void ChooseSpawn()
     {
-        //float timer = GameObject.FindGameObjectWithTag("PickUp").GetComponent<ShotgunPickUp>().timer;
         currentSpawn = null;
         int rand = Random.Range(0, itemSpawns.Length);
-
         currentSpawn = itemSpawns[rand];
     }
 

@@ -28,33 +28,44 @@ namespace HoloToolkit.Unity.InputModule.Tests
         public int Shots = 5;
         public float spreadFactor = 0.2f;
         public bool hasShotgun = false;
+        public bool hasAutoGun = false;
         public float shotgunTime = 5.0f;
-        private float initialTime;
+        public float autoTime = 5.0f;
+        private float initialShotgunTime;
+        //private float initialAutogunTime;
         public AudioClip handgunSound;
         public AudioClip shotgunSound;
+        ShootAuto shootAuto;
+
+        //private float lastAutoShot;
+        //private float autoDelay = 0.1f;
 
         private void Awake()
         {
             audioSource = gameObject.GetComponent<AudioSource>();
+            shootAuto = gameObject.GetComponent<ShootAuto>();
             audioSource.clip = handgunSound;
-            initialTime = shotgunTime;
+            //lastAutoShot = 0.0f;
+            initialShotgunTime = shotgunTime;
         }
 
 
         public void OnInputDown(InputEventData eventData)
         {
-            if (hasShotgun)
+            if (!shootAuto.hasAutoGun)
             {
-                ShotGun();
-                audioSource.clip = shotgunSound;
-            }
-            else
-            {
-                HandGun();
-                audioSource.clip = handgunSound;
-            }
+                if (hasShotgun)
+                {
+                    ShotGun();
+                }
+                else
+                {
+                    HandGun();
+                }
+                audioSource.Play();
+            }            
             eventData.Use(); // Mark the event as used, so it doesn't fall through to other handlers.
-            audioSource.Play(); // Play Shoot sound
+            //audioSource.Play(); // Play Shoot sound
             
         }
 
@@ -63,7 +74,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
             //throw new NotImplementedException();
         }
 
-        void HandGun()
+        public void HandGun()
         {
             GameObject Temporary_Bullet_Handler;
             Rigidbody Temporary_RigidBody;
@@ -71,12 +82,10 @@ namespace HoloToolkit.Unity.InputModule.Tests
 
             //Retrieve the Rigidbody component from the instantiated Bullet and control it.
             Temporary_RigidBody = Temporary_Bullet_Handler.GetComponent<Rigidbody>();
-
             //Add force to bullet
             Temporary_RigidBody.AddForce(transform.forward * Bullet_Forward_Force);
 
-            //print("(" + transform.forward.x + ", " + transform.forward.y + ", " + transform.forward.z + ")");
-
+            audioSource.clip = handgunSound;
             //Destroy bullets after 4 seconds
             Destroy(Temporary_Bullet_Handler, 4.0f);             
         }
@@ -102,6 +111,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
                 //Destroy bullets after 4 seconds
                 Destroy(Temporary_Bullet_Handler, 4.0f);
             }
+            audioSource.clip = shotgunSound;
         }
 
         private void Update()
@@ -115,41 +125,28 @@ namespace HoloToolkit.Unity.InputModule.Tests
             {
                 hasShotgun = false;
                 print("times up no shotty now");
-                shotgunTime = initialTime;
+                shotgunTime = initialShotgunTime;
             }
+
+            //if (hasAutoGun)
+            //{
+            //    if(lastAutoShot + autoDelay < Time.fixedTime)
+            //    {
+            //        HandGun();
+            //        lastAutoShot = Time.deltaTime;
+            //    }
+            //    autoTime -= Time.deltaTime;
+            //    print("lastShot = " + lastAutoShot);
+            //    print("delta = " + Time.fixedTime);
+            //}
+            //if (autoTime <= 0.0f)
+            //{
+            //    hasAutoGun = false;
+            //    //print("times up no shotty now");
+            //    autoTime = initialAutogunTime;
+            //}
         }
     }
-
-// Add full auto gun here 
-
-//    public class Shoot : MonoBehaviour, IHoldHandler
-//    {
-//        private bool holding = false;
-//        public void OnHoldCanceled(HoldEventData eventData)
-//        {
-//            holding = false;
-//        }
-
-//        public void OnHoldCompleted(HoldEventData eventData)
-//        {
-//            holding = false;
-//        }
-
-//        public void OnHoldStarted(HoldEventData eventData)
-//        {
-//            holding = true;
-            
-//            eventData.Use(); // Mark the event as used, so it doesn't fall through to other handlers.
-//        }
-
-//        private void Update()
-//        {
-//            if (holding)
-//            {
-//                gameObject.transform.localScale += 0.005f * gameObject.transform.localScale;
-//            }
-//        }
-//}
 }
 
 
