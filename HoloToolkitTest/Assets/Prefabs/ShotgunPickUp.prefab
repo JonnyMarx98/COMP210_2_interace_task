@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 10
   pickUpSound: {fileID: 8300000, guid: 0f85c8ae838ffe142961d0474355a377, type: 3}
+  UItext: {fileID: 1869465394283530, guid: 37ed5bb09449dcd408c0f346376cae07, type: 2}
 --- !u!122 &122729567660593140
 Halo:
   m_ObjectHideFlags: 1

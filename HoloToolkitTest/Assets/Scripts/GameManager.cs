@@ -13,11 +13,13 @@ namespace HoloToolkit.Unity.InputModule
         TapToPlace tapToPlace;
         public int score;
         public Text scoreText;
+        private GameObject textIns;
+        private GameObject[] UIobjects;
 
         // Use this for initialization
         void Start()
         {
-            scoreText = GameObject.Find("Text").GetComponent<Text>();
+            scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
             Playing = false;
             tapToPlace = gameObject.GetComponent<TapToPlace>();
             audioSource = gameObject.GetComponent<AudioSource>();
@@ -44,10 +46,28 @@ namespace HoloToolkit.Unity.InputModule
             SceneManager.LoadScene("FloorGame");
         }
 
+        public void DisplayText(GameObject prefab, string text)
+        {
+            textIns = Instantiate(prefab);
+            textIns.GetComponent<Text>().text = text;
+            textIns.transform.SetParent(GameObject.Find("Canvas").transform);
+            textIns.transform.localPosition = new Vector3(0.0f, 90.0f, 0.0f);
+        }
+
         // Update is called once per frame
         void Update()
         {
+            UIobjects = GameObject.FindGameObjectsWithTag("UItext");
             scoreText.text = ("Score: " + score.ToString());
+            textIns.transform.localScale += new Vector3(1, 1, 1) * Time.deltaTime;
+            if (textIns.transform.localScale.x > 2.5f)
+            {
+                // destroys all UItext to prevent text that spawned at same time from staying on screen
+                for (int i = 0; i < UIobjects.Length; i++)
+                {
+                    Destroy(UIobjects[i]);
+                }
+            }
         }
     }
 }

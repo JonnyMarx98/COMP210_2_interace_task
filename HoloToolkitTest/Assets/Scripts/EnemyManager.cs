@@ -1,21 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class EnemyManager : MonoBehaviour {
 
     public GameObject enemy;
+    public GameObject UItext;
+    private GameObject ins;
     public float spawnTime;
     public Transform[] spawnPoints;
     HoloToolkit.Unity.InputModule.TapToPlace tapPlace;
     private bool startedSpawning;
+    public float waveTime = 10.0f;
+    private float initWaveTime;
+    private int wave = 1;
+    public bool waveMode = false;
 
     // Use this for initialization
     void Start ()
     {
         tapPlace = GameObject.Find("Environment").GetComponent<HoloToolkit.Unity.InputModule.TapToPlace>();
         startedSpawning = false;
+        initWaveTime = waveTime;
     }
 	
 	// Update is called once per frame
@@ -33,11 +41,34 @@ public class EnemyManager : MonoBehaviour {
         startedSpawning = true;
     }
 
+    void DisplayWave(int waveNumber)
+    {
+        ins = Instantiate(UItext);
+        ins.GetComponent<Text>().text = "Wave " + waveNumber + "!";
+        ins.transform.SetParent(GameObject.Find("Canvas").transform);
+        ins.transform.localPosition = new Vector3(0.0f, 140.0f, 0.0f);
+    }
+
     private void Update()
     {
         if (tapPlace.Playing && !startedSpawning)
         {
             StartSpawning();
         }
+        waveTime -= Time.deltaTime;
+        if (waveTime <= 0.0f && waveMode)
+        {
+            StartSpawning();
+            waveTime = initWaveTime;
+            wave++;
+            print("Wave" + wave + " more enemies >:)");
+            DisplayWave(wave);
+        }
+        ins.transform.localScale += new Vector3(1, 1, 1) * Time.deltaTime;
+        if(ins.transform.localScale.x > 2.5f)
+        {
+            Destroy(ins.gameObject);
+        }
+
     }
 }

@@ -5,15 +5,18 @@ using UnityEngine;
 public class ShotgunPickUp : MonoBehaviour {
 
     HoloToolkit.Unity.InputModule.Tests.Shoot shoot;
+    HoloToolkit.Unity.InputModule.GameManager gameManager;
     public float timer = 10.0f;
     AudioSource audioSource;
     public AudioClip pickUpSound;
-    GameObject player;
+    GameObject player;   
+    public GameObject UItext;
 
     // Use this for initialization
     void Start ()
     {
         player = GameObject.Find("Player");
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<HoloToolkit.Unity.InputModule.GameManager>();
         shoot = player.GetComponent<HoloToolkit.Unity.InputModule.Tests.Shoot>();
         audioSource = player.GetComponent<AudioSource>();
     }
@@ -25,6 +28,7 @@ public class ShotgunPickUp : MonoBehaviour {
             shoot.hasShotgun = true;
             audioSource.clip = pickUpSound;
             audioSource.Play();
+            gameManager.DisplayText(UItext, "Shotgun!");
             Destroy(this.gameObject);
         }
     }

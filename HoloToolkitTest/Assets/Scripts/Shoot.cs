@@ -32,27 +32,28 @@ namespace HoloToolkit.Unity.InputModule.Tests
         public float shotgunTime = 5.0f;
         public float autoTime = 5.0f;
         private float initialShotgunTime;
-        //private float initialAutogunTime;
+        private float initialAutogunTime;
         public AudioClip handgunSound;
         public AudioClip shotgunSound;
         ShootAuto shootAuto;
 
-        //private float lastAutoShot;
-        //private float autoDelay = 0.1f;
+        private float lastAutoShot;
+        private float autoDelay = 0.1f;
 
         private void Awake()
         {
             audioSource = gameObject.GetComponent<AudioSource>();
             shootAuto = gameObject.GetComponent<ShootAuto>();
             audioSource.clip = handgunSound;
-            //lastAutoShot = 0.0f;
+            lastAutoShot = 0.0f;
             initialShotgunTime = shotgunTime;
+            initialAutogunTime = autoTime;
         }
 
 
         public void OnInputDown(InputEventData eventData)
         {
-            if (!shootAuto.hasAutoGun)
+            if (!hasAutoGun)
             {
                 if (hasShotgun)
                 {
@@ -116,8 +117,10 @@ namespace HoloToolkit.Unity.InputModule.Tests
 
         private void Update()
         {
+
             if (hasShotgun)
             {
+                hasAutoGun = false;
                 shotgunTime -= Time.deltaTime;
                 print(shotgunTime);
             }
@@ -128,23 +131,24 @@ namespace HoloToolkit.Unity.InputModule.Tests
                 shotgunTime = initialShotgunTime;
             }
 
-            //if (hasAutoGun)
-            //{
-            //    if(lastAutoShot + autoDelay < Time.fixedTime)
-            //    {
-            //        HandGun();
-            //        lastAutoShot = Time.deltaTime;
-            //    }
-            //    autoTime -= Time.deltaTime;
-            //    print("lastShot = " + lastAutoShot);
-            //    print("delta = " + Time.fixedTime);
-            //}
-            //if (autoTime <= 0.0f)
-            //{
-            //    hasAutoGun = false;
-            //    //print("times up no shotty now");
-            //    autoTime = initialAutogunTime;
-            //}
+            if (hasAutoGun)
+            {
+                hasShotgun = false;
+                if (lastAutoShot + autoDelay < Time.fixedTime)
+                {
+                    HandGun();
+                    audioSource.Play();
+                    lastAutoShot = Time.fixedTime;
+                }
+                autoTime -= Time.deltaTime;
+                print("lastShot = " + lastAutoShot);
+                print("delta = " + Time.fixedTime);
+            }
+            if (autoTime <= 0.0f)
+            {
+                hasAutoGun = false;
+                autoTime = initialAutogunTime;
+            }
         }
     }
 }

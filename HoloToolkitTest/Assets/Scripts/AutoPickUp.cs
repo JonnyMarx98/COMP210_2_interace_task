@@ -5,17 +5,19 @@ using UnityEngine;
 public class AutoPickUp : MonoBehaviour {
 
     HoloToolkit.Unity.InputModule.Tests.Shoot shoot;
-    HoloToolkit.Unity.InputModule.Tests.ShootAuto shootAuto;
+    HoloToolkit.Unity.InputModule.GameManager gameManager;
     public float timer = 10.0f;
     AudioSource audioSource;
     public AudioClip pickUpSound;
     GameObject player;
+    public GameObject UItext;
 
     // Use this for initialization
     void Start()
     {
         player = GameObject.Find("Player");
-        shootAuto = player.GetComponent<HoloToolkit.Unity.InputModule.Tests.ShootAuto>();
+        shoot = player.GetComponent<HoloToolkit.Unity.InputModule.Tests.Shoot>();
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<HoloToolkit.Unity.InputModule.GameManager>();
         audioSource = player.GetComponent<AudioSource>();
     }
 
@@ -24,9 +26,11 @@ public class AutoPickUp : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             // display gun name
-            shootAuto.hasAutoGun = true;
+            shoot.hasShotgun = false;
+            shoot.hasAutoGun = true;
             audioSource.clip = pickUpSound;
             audioSource.Play();
+            gameManager.DisplayText(UItext, "Minigun!");
             Destroy(this.gameObject);
         }
     }

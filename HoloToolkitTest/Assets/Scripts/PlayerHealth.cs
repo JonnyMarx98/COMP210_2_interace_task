@@ -7,17 +7,15 @@ public class PlayerHealth : MonoBehaviour {
     public float playerHealth;
     public float maxHealth = 100.0f;
     HoloToolkit.Unity.InputModule.GameManager gameManager;
+    GameObject healthBar;
 
     // Use this for initialization
     private void Awake()
     {
-        playerHealth = 100.0f;
+        playerHealth = maxHealth;
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<HoloToolkit.Unity.InputModule.GameManager>();
+        healthBar = GameObject.Find("GreenBar");
     }
-    void Start ()
-    {
-		
-	}
 	
 	// Update is called once per frame
 	void Update ()
@@ -36,5 +34,7 @@ public class PlayerHealth : MonoBehaviour {
         {
             playerHealth = maxHealth;
         }
+
+        healthBar.transform.localScale = new Vector3(playerHealth / 100.0f, 1, 1);
 	}
 }
