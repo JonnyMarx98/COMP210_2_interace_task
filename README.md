@@ -8,8 +8,10 @@ For my interface I will be using my collaborative game which is a top down point
 * KILL THE ENEMIES & SURVIVE!
 
 Tap - Shoot / Place enemy to start game
-Tip: To tap hold arm out in front of you, point your index finger straight up and pivot it down towards your thumb, WITHOUT bending your finger.
-PRO tip: use two hands for rapid fire :D
+#### Tip: #### 
+To tap hold arm out in front of you, point your index finger straight up and pivot it down towards your thumb, WITHOUT bending your finger.
+#### PRO tip: #####
+Use two hands for rapid fire :D
 
 #### Voice Controls: ####
 * Stop - stops player from walking
