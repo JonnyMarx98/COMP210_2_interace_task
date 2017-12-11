@@ -8,7 +8,7 @@ For my interface I will be using my collaborative game which is a top down point
 * KILL THE ENEMIES & SURVIVE!
 
 Tap - Shoot / Place enemy to start game
-### Voice Controls:
+### Voice Controls: ###
 * Stop - stops player from walking
 * Move - player starts walking towards cursor until you say stop again
 
