@@ -18,13 +18,12 @@ public class EnemyMovement : MonoBehaviour {
     private bool scoreAdd = false;
     private bool scoreAdded = false;
 
-    private bool Attacking;
     private bool Attacked = false;
     public float attackRate = 0.5f; // lower number = faster attack
-    private float lastAttackTime;
     public float AttackTime = 0.5f;
     public float enemyDamage = 10f;
     private float InitAttackTime;
+    public AudioClip[] audioClips;
 
     AudioSource audioSource;
     public AudioClip deathSound;
@@ -59,9 +58,19 @@ public class EnemyMovement : MonoBehaviour {
         if (other.gameObject.tag == "Player" && !Attacked)
         {
             player.GetComponent<PlayerHealth>().playerHealth -= enemyDamage;
+            //GameObject.Find("PlayerHurtAudio").GetComponent<AudioSource>().Play();
+            PlayerDamageAudio();
             print("ouch");
             Attacked = true;
         }
+    }
+
+    private void PlayerDamageAudio()
+    {
+        int ran = Random.Range(0, audioClips.Length);
+        AudioSource audioSrc = GameObject.Find("PlayerHurtAudio").GetComponent<AudioSource>();
+        audioSrc.clip = audioClips[ran];
+        audioSrc.Play();
     }
 
     private void OnTriggerExit(Collider other)

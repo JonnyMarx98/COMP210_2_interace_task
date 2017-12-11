@@ -31,11 +31,12 @@ namespace HoloToolkit.Unity.InputModule.Tests
         public bool hasAutoGun = false;
         public float shotgunTime = 5.0f;
         public float autoTime = 5.0f;
-        private float initialShotgunTime;
-        private float initialAutogunTime;
+        public float initialShotgunTime;       
+        public float initialAutogunTime;
+        [SerializeField]
         public AudioClip handgunSound;
         public AudioClip shotgunSound;
-        ShootAuto shootAuto;
+        //ShootAuto shootAuto;
 
         private float lastAutoShot;
         private float autoDelay = 0.1f;
@@ -43,7 +44,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
         private void Awake()
         {
             audioSource = gameObject.GetComponent<AudioSource>();
-            shootAuto = gameObject.GetComponent<ShootAuto>();
+           // shootAuto = gameObject.GetComponent<ShootAuto>();
             audioSource.clip = handgunSound;
             lastAutoShot = 0.0f;
             initialShotgunTime = shotgunTime;
@@ -121,6 +122,8 @@ namespace HoloToolkit.Unity.InputModule.Tests
             if (hasShotgun)
             {
                 hasAutoGun = false;
+                AudioSource audioSrc = GameObject.Find("TingGoesSkrr").GetComponent<AudioSource>();
+                audioSrc.Stop();
                 shotgunTime -= Time.deltaTime;
                 print(shotgunTime);
             }
@@ -130,6 +133,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
                 print("times up no shotty now");
                 shotgunTime = initialShotgunTime;
             }
+
 
             if (hasAutoGun)
             {

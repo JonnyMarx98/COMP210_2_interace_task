@@ -208,6 +208,13 @@ MonoBehaviour:
   speed: 3
   isWalking: 0
   attackRate: 0.5
+  AttackTime: 0.5
+  enemyDamage: 10
+  audioClips:
+  - {fileID: 8300000, guid: 1f9a7039ba6482a4d8e938ccfe8d2e8d, type: 3}
+  - {fileID: 8300000, guid: 0494c1dbd56cce94ab60de18a2250c04, type: 3}
+  - {fileID: 8300000, guid: e0d1416addebb8145bb56960ae111796, type: 3}
+  - {fileID: 8300000, guid: 30eb68b3ef494f04bbbcb2c66f9b7f4b, type: 3}
   deathSound: {fileID: 8300000, guid: 0e5c5ed9e3c4dc642897602231180269, type: 3}
 --- !u!136 &136570632772174326
 CapsuleCollider:

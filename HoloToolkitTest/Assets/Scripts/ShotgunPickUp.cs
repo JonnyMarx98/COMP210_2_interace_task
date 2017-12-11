@@ -26,6 +26,7 @@ public class ShotgunPickUp : MonoBehaviour {
         if(other.gameObject.tag == "Player")
         {
             shoot.hasShotgun = true;
+            shoot.shotgunTime = shoot.initialShotgunTime;
             audioSource.clip = pickUpSound;
             audioSource.Play();
             gameManager.DisplayText(UItext, "Shotgun!");

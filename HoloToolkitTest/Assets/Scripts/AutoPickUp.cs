@@ -28,11 +28,19 @@ public class AutoPickUp : MonoBehaviour {
             // display gun name
             shoot.hasShotgun = false;
             shoot.hasAutoGun = true;
+            shoot.autoTime = shoot.initialAutogunTime;
             audioSource.clip = pickUpSound;
             audioSource.Play();
+            PlayerDamageAudio();
             gameManager.DisplayText(UItext, "Minigun!");
             Destroy(this.gameObject);
         }
+    }
+
+    private void PlayerDamageAudio()
+    {
+        AudioSource audioSrc = GameObject.Find("TingGoesSkrr").GetComponent<AudioSource>();
+        audioSrc.Play();
     }
 
     // Update is called once per frame
