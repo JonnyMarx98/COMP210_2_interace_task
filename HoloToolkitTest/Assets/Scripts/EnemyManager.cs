@@ -46,7 +46,7 @@ public class EnemyManager : MonoBehaviour {
         ins = Instantiate(UItext);
         ins.GetComponent<Text>().text = "Wave " + waveNumber + "!";
         ins.transform.SetParent(GameObject.Find("Canvas").transform);
-        ins.transform.localPosition = new Vector3(0.0f, 140.0f, 0.0f);
+        ins.transform.localPosition = new Vector3(0.0f, 2.0f, 0.0f);
     }
 
     private void Update()
@@ -64,8 +64,8 @@ public class EnemyManager : MonoBehaviour {
             print("Wave" + wave + " more enemies >:)");
             DisplayWave(wave);
         }
-        ins.transform.localScale += new Vector3(1, 1, 1) * Time.deltaTime;
-        if(ins.transform.localScale.x > 2.5f)
+        ins.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f) * Time.deltaTime;
+        if(ins.transform.localScale.x > 1.5f)
         {
             Destroy(ins.gameObject);
         }

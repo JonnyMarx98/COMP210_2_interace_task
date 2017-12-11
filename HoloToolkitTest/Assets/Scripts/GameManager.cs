@@ -51,7 +51,7 @@ namespace HoloToolkit.Unity.InputModule
             textIns = Instantiate(prefab);
             textIns.GetComponent<Text>().text = text;
             textIns.transform.SetParent(GameObject.Find("Canvas").transform);
-            textIns.transform.localPosition = new Vector3(0.0f, 90.0f, 0.0f);
+            textIns.transform.localPosition = new Vector3(0.0f, 2.0f, 0.0f);
         }
 
         // Update is called once per frame
@@ -59,7 +59,8 @@ namespace HoloToolkit.Unity.InputModule
         {
             UIobjects = GameObject.FindGameObjectsWithTag("UItext");
             scoreText.text = ("Score: " + score.ToString());
-            textIns.transform.localScale += new Vector3(1, 1, 1) * Time.deltaTime;
+            textIns.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f) * Time.deltaTime;
+            textIns.transform.localRotation = GameObject.Find("Canvas").transform.rotation;
             if (textIns.transform.localScale.x > 2.5f)
             {
                 // destroys all UItext to prevent text that spawned at same time from staying on screen

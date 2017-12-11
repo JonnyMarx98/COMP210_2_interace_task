@@ -23,6 +23,7 @@ public class EnemyMovement : MonoBehaviour {
     public float attackRate = 0.5f; // lower number = faster attack
     private float lastAttackTime;
     public float AttackTime = 0.5f;
+    public float enemyDamage = 10f;
     private float InitAttackTime;
 
     AudioSource audioSource;
@@ -57,7 +58,7 @@ public class EnemyMovement : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player" && !Attacked)
         {
-            player.GetComponent<PlayerHealth>().playerHealth -= 20.0f;
+            player.GetComponent<PlayerHealth>().playerHealth -= enemyDamage;
             print("ouch");
             Attacked = true;
         }
