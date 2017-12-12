@@ -1,1 +1,0 @@
-C:\Uni\COMP210_2_interace_task\HololensProject\App\HololensProject\HololensProject.csproj;x86
