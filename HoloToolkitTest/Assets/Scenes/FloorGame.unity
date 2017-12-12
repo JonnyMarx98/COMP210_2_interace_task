@@ -2298,7 +2298,7 @@ GameObject:
   - component: {fileID: 744423183}
   - component: {fileID: 744423184}
   m_Layer: 0
-  m_Name: TingGoesSkrr
+  m_Name: MiniGunAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2326,7 +2326,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 82bebf713cbf22341847696acb8e4f6f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a0068e63beaf85d449f283123213a4b5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
