@@ -39,7 +39,7 @@ public class AutoPickUp : MonoBehaviour {
 
     private void PlayerDamageAudio()
     {
-        AudioSource audioSrc = GameObject.Find("TingGoesSkrr").GetComponent<AudioSource>();
+        AudioSource audioSrc = GameObject.Find("MiniGunAudio").GetComponent<AudioSource>();
         audioSrc.Play();
     }
 

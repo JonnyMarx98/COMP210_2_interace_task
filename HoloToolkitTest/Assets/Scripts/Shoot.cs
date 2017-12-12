@@ -122,7 +122,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
             if (hasShotgun)
             {
                 hasAutoGun = false;
-                AudioSource audioSrc = GameObject.Find("TingGoesSkrr").GetComponent<AudioSource>();
+                AudioSource audioSrc = GameObject.Find("MiniGunAudio").GetComponent<AudioSource>();
                 audioSrc.Stop();
                 shotgunTime -= Time.deltaTime;
                 print(shotgunTime);
