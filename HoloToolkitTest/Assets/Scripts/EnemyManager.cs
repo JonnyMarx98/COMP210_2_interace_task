@@ -51,12 +51,12 @@ public class EnemyManager : MonoBehaviour {
 
     private void Update()
     {
-        if (tapPlace.Playing && !startedSpawning)
+        if (!tapPlace.IsBeingPlaced && !startedSpawning)
         {
             StartSpawning();
         }
         waveTime -= Time.deltaTime;
-        if (waveTime <= 0.0f && waveMode)
+        if (waveTime <= 0.0f && waveMode && !tapPlace.IsBeingPlaced)
         {
             StartSpawning();
             waveTime = initWaveTime;

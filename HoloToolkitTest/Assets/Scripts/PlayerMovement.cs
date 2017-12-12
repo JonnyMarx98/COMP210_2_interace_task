@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour {
             anim.SetBool("IsWalking", false);
         }
 
-        if(transform.position.y < -10)
+        if(transform.position.y < -100)
         {
             gameObject.GetComponent<PlayerHealth>().playerHealth = 0.0f;
         }
