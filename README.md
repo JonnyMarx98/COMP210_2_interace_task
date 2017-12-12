@@ -27,3 +27,9 @@ Use two hands for rapid fire :D
 Bullet model by [Google](https://poly.google.com/view/2_eJPKc_a_D) is licensed under CC BY
 
 Gun model by [Google](https://poly.google.com/view/4Rq3N_nqFRT) is licensed under CC BY 
+
+## Test Videos
+
+[TestVideo1](https://youtu.be/-EDqyhaGc4Q)
+[TestVideo2](https://youtu.be/P30OfhuLyDE)
+
