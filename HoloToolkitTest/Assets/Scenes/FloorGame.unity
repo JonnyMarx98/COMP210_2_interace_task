@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1755,13 +1755,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1a9883f024cc545930621adf753e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastShotTime: 0
-  shotDelay: 0.1
-  hasAutoGun: 0
-  holding: 0
-  autoTime: 10
-  initialAutogunTime: 0
-  shoot: {fileID: 0}
 --- !u!114 &469576782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3878,7 +3871,7 @@ Prefab:
         type: 2}
       propertyPath: surfaceMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 991eaaf155ff28e418669153b259ce93, type: 2}
+      objectReference: {fileID: 2100000, guid: d698790d3facd3d4289a13fa1243030a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ed75ffdf9031c94e8bce4b3d17b9928, type: 2}
   m_IsPrefabParent: 0
