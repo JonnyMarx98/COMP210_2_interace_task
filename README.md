@@ -21,7 +21,7 @@ Use two hands for rapid fire :D
 * Stop - stops player from walking
 * Move - player starts walking towards cursor until you say stop again
 * Faster - Increase player speed
-* Faster - Decrease player speed
+* Slower - Decrease player speed
 
 ## Attribution
 Bullet model by [Google](https://poly.google.com/view/2_eJPKc_a_D) is licensed under CC BY
